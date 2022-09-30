@@ -1,0 +1,186 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --blue: #48d9d9;
+  --dark-blue: #6b8dbf;
+  --white: #ffffff;
+  --black: #000;
+  --pink: #9658c4;
+  --mouse: #692c04;
+}
+body {
+  background-color: #604940;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-machine {
+  background: var(--white);
+  width: 260px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: vibrate 0.7s linear infinite;
+	animation-play-state: running;
+}
+.main-machine:hover {
+	animation-play-state: paused;
+}
+.main-machine .control-part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--blue);
+  height: 50px;
+  position: relative;
+}
+.main-machine .control-part::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 5px;
+  background: #eee;
+  bottom: -3px;
+}
+.main-machine .control-part .left-button {
+  display: flex;
+  gap: 5px;
+  margin-left: 15px;
+}
+.main-machine .control-part .left-button span {
+  background-color: var(--pink);
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+.main-machine .control-part .right-button {
+  display: flex;
+  gap: 10px;
+  margin-right: 15px;
+}
+.main-machine .control-part .right-button span {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: var(--white);
+  box-shadow: 3px 1px 0 #777;
+}
+.circle {
+  border-radius: 50%;
+  background-color: var(--dark-blue);
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  border: 8px solid var(--blue);
+}
+.circle::before {
+  content: "";
+  position: absolute;
+  background-color: var(--blue);
+  width: 20px;
+  height: 25px;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@keyframes vibrate {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+.circle .face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	animation: rotate 2s infinite;
+	animation-play-state: running;
+}
+.main-machine:hover .circle .face {
+	animation-play-state: paused;
+}
+@keyframes rotate {
+0% {
+	transform: rotate(0deg);
+}
+30% {
+	transform: rotate(90deg);
+}
+60% {
+	transform: rotate(180deg);
+}
+80% {
+	transform: rotate(300deg);
+}
+100% {
+	transform: rotate(360deg);
+}
+}
+.circle .face .eyes {
+	width: 55px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	top: 35px;
+	transform: translatex(-50%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.circle .face .eyes span {
+	background: black;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+}
+.circle .face .mouse {
+	position: absolute;
+	background-color: var(--mouse);
+	width: 35px;
+	height: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 65px;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
